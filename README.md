@@ -1,8 +1,9 @@
-# React + Vite
+## Private For your Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+you have to create private repo in our Google Classroom . here is the Link
 
-Currently, two official plugins are available:
+# [https://classroom.github.com/a/Dv9-BYl\_](https://classroom.github.com/a/Dv9-BYl_)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+figma link: https://www.figma.com/design/qr7hizhQyfmitEimBC6blK/Assignment-8?node-id=0-1&node-type=canvas&t=7Sr6v8i3wIN015u6-0
+
+## follow requirement pdf
