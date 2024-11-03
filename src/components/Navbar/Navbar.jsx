@@ -174,10 +174,43 @@ const Navbar = () => {
       </div>
     );
   }
-
+  const links2 = (
+    <>
+      <li>
+        <NavLink
+          to={"/"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"statistics"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Statistics
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to={"dashboard"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+    </>
+  );
   return (
-    <div className="">
-      <div className="navbar rounded-3xl bg-primary-0">
+    <div className="space-y-6 rounded-3xl px-32 pt-10">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -198,18 +231,20 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box p-2 text-white shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box p-2 text-[#0B0B0BB2] shadow"
             >
-              {links}
+              {links2}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-white">Gadget Heaven</a>
+          <a className="btn btn-ghost text-xl text-[#0B0B0B]">Gadget Heaven</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-white">{links}</ul>
+          <ul className="menu menu-horizontal px-1 text-[#0B0B0BB2]">
+            {links2}
+          </ul>
         </div>
         <div className="navbar-end space-x-4">
-          <div className="rounded-full bg-white p-2">
+          <div className="rounded-full border border-[#0B0B0B1A] bg-white p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -254,7 +289,7 @@ const Navbar = () => {
               </defs>
             </svg>
           </div>
-          <div className="rounded-full bg-white p-2">
+          <div className="rounded-full border border-[#0B0B0B1A] bg-white p-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"

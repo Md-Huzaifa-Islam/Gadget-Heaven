@@ -1,0 +1,103 @@
+{
+  "products": [
+    {
+      "product_id": 1,
+      "product_title": "Dell XPS 13",
+      "product_image": "https://example.com/images/dell_xps_13.jpg",
+      "category": "laptop",
+      "price": 999.99,
+      "description": "Compact, high-performance laptop with stunning display.",
+      "Specification": ["Intel Core i7", "16GB", "512GB SSD", "13.3 inch"],
+      "availability": true,
+      "rating": 4.5
+    },
+    {
+      "product_id": 2,
+      "product_title": "MacBook Pro 14",
+      "product_image": "https://example.com/images/macbook_pro_14.jpg",
+      "category": "laptop",
+      "price": 1999.99,
+      "description": "Apple's powerful and portable laptop with M1 Pro chip.",
+      "Specification": ["Apple M1 Pro", "16GB", "512GB SSD", "14 inch"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": 3,
+      "product_title": "HP Spectre x360",
+      "product_image": "https://example.com/images/hp_spectre_x360.jpg",
+      "category": "laptop",
+      "price": 1249.99,
+      "description": "Stylish, versatile 2-in-1 laptop with touch support.",
+      "Specification": ["Intel Core i7", "16GB", "512GB SSD", "13.5 inch"],
+      "availability": true,
+      "rating": 4.6
+    },
+    {
+      "product_id": 4,
+      "product_title": "Lenovo ThinkPad X1 Carbon",
+      "product_image": "https://example.com/images/thinkpad_x1_carbon.jpg",
+      "category": "laptop",
+      "price": 1399.99,
+      "description": "Durable, high-performance laptop designed for business.",
+      "Specification": ["Intel Core i7", "16GB", "1TB SSD", "14 inch"],
+      "availability": true,
+      "rating": 4.7
+    },
+    {
+      "product_id": 5,
+      "product_title": "Acer Swift 3",
+      "product_image": "https://example.com/images/acer_swift_3.jpg",
+      "category": "laptop",
+      "price": 799.99,
+      "description": "Affordable and lightweight laptop for everyday use.",
+      "Specification": ["AMD Ryzen 7", "8GB", "512GB SSD", "14 inch"],
+      "availability": false,
+      "rating": 4.2
+    },
+    {
+      "product_id": 6,
+      "product_title": "Asus ZenBook 14",
+      "product_image": "https://example.com/images/asus_zenbook_14.jpg",
+      "category": "laptop",
+      "price": 949.99,
+      "description": "Ultra-slim and lightweight laptop with an immersive display.",
+      "Specification": ["Intel Core i5", "8GB", "512GB SSD", "14 inch"],
+      "availability": true,
+      "rating": 4.4
+    },
+    {
+      "product_id": 7,
+      "product_title": "iPhone 13",
+      "product_image": "https://example.com/images/iphone_13.jpg",
+      "category": "phone",
+      "price": 799.99,
+      "description": "Apple's latest smartphone with improved camera and battery.",
+      "Specification": ["128GB", "12MP", "6.1 inch"],
+      "availability": true,
+      "rating": 4.8
+    },
+    {
+      "product_id": 8,
+      "product_title": "Samsung Galaxy S21",
+      "product_image": "https://example.com/images/galaxy_s21.jpg",
+      "category": "phone",
+      "price": 699.99,
+      "description": "Samsung's flagship smartphone with high-res camera.",
+      "Specification": ["128GB", "64MP", "6.2 inch"],
+      "availability": false,
+      "rating": 4.5
+    },
+    {
+      "product_id": 9,
+      "product_title": "Google Pixel 6",
+      "product_image": "https://example.com/images/pixel_6.jpg",
+      "category": "phone",
+      "price": 599.99,
+      "description": "Google's new Pixel with unique camera design.",
+      "Specification": ["128GB", "50MP", "6.4 inch"],
+      "availability": true,
+      "rating": 4.6
+    }
+  ]
+}
