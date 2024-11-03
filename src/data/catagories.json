@@ -1,6 +1,10 @@
 {
   "categories": [
     {
+      "id": 0,
+      "name": "All Product"
+    },
+    {
       "id": 1,
       "name": "Laptops"
     },
