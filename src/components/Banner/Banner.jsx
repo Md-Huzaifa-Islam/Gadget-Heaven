@@ -11,9 +11,12 @@ const Banner = () => {
           Explore the latest gadgets that will take your experience to the next
           level. From smart devices to the coolest accessories, we have it all!
         </p>
-        <button className="mx-auto mt-2 w-max rounded-full bg-white px-7 py-3 text-xl font-bold text-primary-0">
+        <a
+          href="#shop"
+          className="mx-auto mt-2 w-max rounded-full bg-white px-7 py-3 text-xl font-bold text-primary-0"
+        >
           Shop Now
-        </button>
+        </a>
       </div>
       {/* window section  */}
       <div className="absolute -bottom-80 left-1/2 mx-auto h-[570px] w-[80%] -translate-x-1/2 rounded-[32px] border-[3px] border-solid border-white bg-white bg-opacity-35 p-6">

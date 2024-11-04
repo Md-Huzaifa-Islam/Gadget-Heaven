@@ -9,7 +9,6 @@ import Explore from "./components/Explore/Explore";
 import Phones from "./components/Explore/Phones";
 import All from "./components/Explore/All";
 import Accessories from "./components/Explore/Accessories";
-import Category from "./components/Explore/Category";
 import Iphones from "./components/Explore/Iphones";
 import Laptops from "./components/Explore/Laptops";
 import Macbook from "./components/Explore/Macbook";

@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import Banner from "../Banner/Banner";
-import { useEffect, useState } from "react";
 const Navbar = () => {
   const data = [
     "/",
@@ -11,7 +10,6 @@ const Navbar = () => {
     "/macBooks",
     "/iphones",
   ];
-  console.log(data);
   const links = (
     <>
       <li>
@@ -72,7 +70,6 @@ const Navbar = () => {
   );
   const { pathname } = useLocation();
   if (data.includes(pathname)) {
-    console.log("yes");
     return (
       <div className="mb-[500px] space-y-12 rounded-3xl bg-primary-0 px-32 pt-10">
         <div className="navbar">

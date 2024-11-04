@@ -10,7 +10,7 @@ const Frame = () => {
   }, []);
   return (
     <>
-      <p className="text-center text-4xl font-bold text-[#0B0B0B]">
+      <p id="shop" className="text-center text-4xl font-bold text-[#0B0B0B]">
         Explore Cutting-Edge Gadgets
       </p>
       <div className="flex gap-6 px-32">
