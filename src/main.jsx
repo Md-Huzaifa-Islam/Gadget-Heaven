@@ -15,6 +15,7 @@ import Laptops from "./components/Explore/Laptops";
 import Macbook from "./components/Explore/Macbook";
 import Smartwatches from "./components/Explore/Smartwatches";
 import Details from "./components/Details/Details";
+import Frame from "./components/Explore/Frame";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,37 +27,39 @@ const router = createBrowserRouter([
         children: [
           {
             path: "/",
-            element: <All></All>,
+            element: <Frame></Frame>,
+            children: [
+              {
+                path: "/",
+                element: <All></All>,
+              },
+              {
+                path: "phones",
+                element: <Phones></Phones>,
+              },
+              {
+                path: "accessories",
+                element: <Accessories></Accessories>,
+              },
+              {
+                path: "iphones",
+                element: <Iphones></Iphones>,
+              },
+              {
+                path: "laptops",
+                element: <Laptops></Laptops>,
+              },
+              {
+                path: "macbooks",
+                element: <Macbook></Macbook>,
+              },
+              {
+                path: "smartwatches",
+                element: <Smartwatches></Smartwatches>,
+              },
+            ],
           },
 
-          {
-            path: "phones",
-            element: <Phones></Phones>,
-          },
-          {
-            path: "accessories",
-            element: <Accessories></Accessories>,
-          },
-          {
-            path: "category",
-            element: <Category></Category>,
-          },
-          {
-            path: "iphones",
-            element: <Iphones></Iphones>,
-          },
-          {
-            path: "laptops",
-            element: <Laptops></Laptops>,
-          },
-          {
-            path: "macbooks",
-            element: <Macbook></Macbook>,
-          },
-          {
-            path: "smartwatches",
-            element: <Smartwatches></Smartwatches>,
-          },
           {
             path: "product/:id",
             element: <Details></Details>,
