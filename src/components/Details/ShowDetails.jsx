@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import { setLocalStorage } from "../Local Storage/localStorage";
 
 const ShowDetails = ({ device }) => {
-  console.log(device);
   const {
     product_image,
+    product_id,
     price,
     product_title,
     availability,
@@ -11,6 +12,13 @@ const ShowDetails = ({ device }) => {
     Specification,
     rating,
   } = device;
+
+  function handleCart() {
+    setLocalStorage("cart", product_id);
+  }
+  function handleWish() {
+    setLocalStorage("wishlist", product_id);
+  }
   return (
     <div className="grid grid-cols-[1fr_1.8fr] grid-rows-1 gap-8">
       <div className="">
@@ -49,7 +57,10 @@ const ShowDetails = ({ device }) => {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button className="btn h-auto rounded-[32px] bg-[#9538E2] p-2 px-5 text-white hover:text-[#9538E2]">
+          <button
+            onClick={handleCart}
+            className="btn h-auto rounded-[32px] bg-[#9538E2] p-2 px-5 text-white hover:text-[#9538E2]"
+          >
             <p>Add To Card</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +111,10 @@ const ShowDetails = ({ device }) => {
               </defs>
             </svg>
           </button>
-          <button className="btn rounded-full border border-[#09080F] border-opacity-40 p-3">
+          <button
+            onClick={handleWish}
+            className="btn rounded-full border border-[#09080F] border-opacity-40 p-3"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="25"

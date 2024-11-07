@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ShowDetails from "./ShowDetails";
-
 const Details = () => {
   const { id } = useParams();
-
   const [devices, setDevices] = useState([]);
 
   useEffect(() => {
