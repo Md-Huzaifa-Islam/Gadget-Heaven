@@ -3,12 +3,17 @@ function getFromLocalStorage(key) {
   return item ? item : [];
 }
 
-function setLocalStorage(key, productId) {
+function setLocalStorage(key, product) {
   const items = getFromLocalStorage(key);
-  if (items.includes(productId)) {
-    return;
-  } else {
-    items.push(productId);
+  const product_id = product["product_id"];
+  let flag = true;
+  items.map((prev) => {
+    if (prev["product_id"] == product_id) {
+      flag = false;
+    }
+  });
+  if (flag == true) {
+    items.push(product);
     localStorage.setItem(key, JSON.stringify(items));
   }
 }

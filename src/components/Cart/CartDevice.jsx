@@ -1,12 +1,13 @@
-import { removeFromLocal } from "../Local Storage/localStorage";
+import { useContext } from "react";
 import PropTypes from "prop-types";
+import CartContext from "../../Context/Cardcontext";
 
 const CartDevice = ({ device }) => {
-  function handleRemove() {
-    removeFromLocal("cart", product_id);
-  }
-  const { product_title, product_image, product_id, Specification, price } =
-    device;
+  const { removeFromCart } = useContext(CartContext);
+  const handleremove = () => {
+    removeFromCart(device);
+  };
+  const { product_title, product_image, Specification, price } = device;
   return (
     <div className="flex justify-between rounded-2xl bg-white p-8 shadow-lg">
       <div className="grid grid-cols-[1fr_5.5fr] items-center gap-8">
@@ -32,7 +33,7 @@ const CartDevice = ({ device }) => {
         </div>
       </div>
       <button
-        onClick={handleRemove}
+        onClick={handleremove}
         className="h-max rounded-full border-2 border-[#FF0000] p-[6px]"
       >
         <svg
@@ -58,7 +59,7 @@ CartDevice.propTypes = {
   device: PropTypes.shape({
     product_title: PropTypes.string,
     product_image: PropTypes.string,
-    product_id: PropTypes.string,
+    product_id: PropTypes.number,
     Specification: PropTypes.arrayOf(PropTypes.string),
     price: PropTypes.number,
   }),

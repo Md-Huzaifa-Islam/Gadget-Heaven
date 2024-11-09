@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 const Navbar = () => {
   const data = [
     "/",
+    "/all",
     "/laptops",
     "/phones",
     "/accessories",

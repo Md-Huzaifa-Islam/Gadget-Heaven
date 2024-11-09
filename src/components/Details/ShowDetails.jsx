@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
-import { setLocalStorage } from "../Local Storage/localStorage";
-
+import { useContext } from "react";
+import CartContext from "../../Context/Cardcontext";
+import WishContext from "../../context/wishContext";
 const ShowDetails = ({ device }) => {
+  const { addToCart } = useContext(CartContext);
+  const { addToWish } = useContext(WishContext);
   const {
     product_image,
-    product_id,
     price,
     product_title,
     availability,
@@ -13,12 +15,6 @@ const ShowDetails = ({ device }) => {
     rating,
   } = device;
 
-  function handleCart() {
-    setLocalStorage("cart", product_id);
-  }
-  function handleWish() {
-    setLocalStorage("wishlist", product_id);
-  }
   return (
     <div className="grid grid-cols-[1fr_1.8fr] grid-rows-1 gap-8">
       <div className="">
@@ -58,7 +54,7 @@ const ShowDetails = ({ device }) => {
         </div>
         <div className="flex items-center gap-4">
           <button
-            onClick={handleCart}
+            onClick={() => addToCart(device)}
             className="btn h-auto rounded-[32px] bg-[#9538E2] p-2 px-5 text-white hover:text-[#9538E2]"
           >
             <p>Add To Card</p>
@@ -112,7 +108,7 @@ const ShowDetails = ({ device }) => {
             </svg>
           </button>
           <button
-            onClick={handleWish}
+            onClick={addToWish(device)}
             className="btn rounded-full border border-[#09080F] border-opacity-40 p-3"
           >
             <svg

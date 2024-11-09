@@ -1,28 +1,21 @@
-import { useEffect, useState } from "react";
-import { getFromLocalStorage } from "../Local Storage/localStorage";
+import { useContext } from "react";
+import CartContext from "../../Context/Cardcontext";
 import CartDevice from "./CartDevice";
 
 const Cart = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetch("/src/data/devices.json")
-      .then((res) => res.json())
-      .then((data) => setData(data.products));
-  }, []);
-  const ids = getFromLocalStorage("cart");
-  const items = data.filter((device) => {
-    return ids.includes(device["product_id"]);
-  });
-
+  const { cart, sortCart, clearCart, price } = useContext(CartContext);
   return (
     <div className="bg-background-0 px-32 pt-12 text-black">
       <div className="flex items-center justify-between px-5 pb-8">
         <p className="text-2xl font-bold text-[#0B0B0B]">Cart</p>
         <div className="flex items-center justify-between">
           <p className="mr-6 text-2xl font-bold text-[#0B0B0B]">
-            Total cost: 999.99
+            Total cost: {price}
           </p>
-          <button className="mr-4 flex items-center gap-2 rounded-[32px] border-[1.5px] border-[#9538E2] px-5 py-2 text-lg font-semibold text-[#9538E2]">
+          <button
+            onClick={sortCart}
+            className="mr-4 flex items-center gap-2 rounded-[32px] border-[1.5px] border-[#9538E2] px-5 py-2 text-lg font-semibold text-[#9538E2]"
+          >
             <p>Sort by Price</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -103,13 +96,16 @@ const Cart = () => {
               </defs>
             </svg>
           </button>
-          <button className="rounded-[32px] border-[1.5px] border-[#9538E2] bg-[#9538E2] px-5 py-2 text-lg font-medium text-white">
+          <button
+            onClick={clearCart}
+            className="rounded-[32px] border-[1.5px] border-[#9538E2] bg-[#9538E2] px-5 py-2 text-lg font-medium text-white"
+          >
             Purchase
           </button>
         </div>
       </div>
       <div className="flex flex-col gap-6 px-5">
-        {items.map((device, id) => (
+        {cart.map((device, id) => (
           <CartDevice device={device} key={id}></CartDevice>
         ))}
       </div>

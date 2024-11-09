@@ -19,6 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+
     children: [
       {
         path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             children: [
               {
                 path: "/",
+                element: <All></All>,
+              },
+              {
+                path: "/all",
                 element: <All></All>,
               },
               {
@@ -61,6 +66,10 @@ const router = createBrowserRouter([
 
           {
             path: "product/:id",
+            element: <Details></Details>,
+          },
+          {
+            path: "all/product/:id",
             element: <Details></Details>,
           },
           {
