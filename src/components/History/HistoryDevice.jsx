@@ -1,11 +1,11 @@
-import { useContext } from "react";
 import PropTypes from "prop-types";
-import CartContext from "../../Context/Cardcontext";
+import { useContext } from "react";
+import HistoryContext from "../../context/purchasecontext";
 
-const CartDevice = ({ device }) => {
-  const { removeFromCart } = useContext(CartContext);
+const HistoryDevice = ({ device }) => {
+  const { removeFromHistory } = useContext(HistoryContext);
   const handleremove = () => {
-    removeFromCart(device);
+    removeFromHistory(device);
   };
   const { product_title, product_image, Specification, price } = device;
   return (
@@ -30,7 +30,7 @@ const CartDevice = ({ device }) => {
             })}
           </p>
           <p className="text-base font-semibold opacity-80 md:text-xl">
-            Price: $ {price}
+            Price: $ {price} <span className="text-green-600">Paid</span>
           </p>
         </div>
       </div>
@@ -57,14 +57,13 @@ const CartDevice = ({ device }) => {
     </div>
   );
 };
-CartDevice.propTypes = {
+HistoryDevice.propTypes = {
   device: PropTypes.shape({
     product_title: PropTypes.string,
     product_image: PropTypes.string,
-    product_id: PropTypes.number,
     Specification: PropTypes.arrayOf(PropTypes.string),
     price: PropTypes.number,
   }),
 };
 
-export default CartDevice;
+export default HistoryDevice;

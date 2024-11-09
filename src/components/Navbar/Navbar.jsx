@@ -1,6 +1,11 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Banner from "../Banner/Banner";
+import { useContext } from "react";
+import CartContext from "../../Context/Cardcontext";
+import WishContext from "../../context/wishContext";
 const Navbar = () => {
+  const { cart } = useContext(CartContext);
+  const { wish } = useContext(WishContext);
   const data = [
     "/",
     "/all",
@@ -49,6 +54,7 @@ const Navbar = () => {
           Statistics
         </NavLink>
       </li>
+
       <li>
         <NavLink
           to={"dashboard"}
@@ -67,12 +73,30 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to={"history"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+          style={({ isActive }) => {
+            return {
+              backgroundColor: isActive ? "transparent" : "transparent",
+              textDecoration: isActive ? "underline" : "",
+              color: isActive ? "white" : "white",
+              fontWeight: isActive ? "700" : "500",
+            };
+          }}
+        >
+          Purchase History
+        </NavLink>
+      </li>
     </>
   );
   const { pathname } = useLocation();
   if (data.includes(pathname)) {
     return (
-      <div className="mb-[500px] space-y-12 rounded-3xl bg-primary-0 px-32 pt-10">
+      <div className="mx-5 mt-5 space-y-6 rounded-3xl bg-primary-0 px-5 pt-5 md:mx-5 md:mt-8 md:space-y-12 md:pt-8 lg:px-32">
         <div className="navbar">
           <div className="navbar-start">
             <div className="dropdown">
@@ -103,13 +127,18 @@ const Navbar = () => {
                 {links}
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl text-white">Gadget Heaven</a>
+            <Link to={"/"} className="btn btn-ghost text-xl text-white">
+              Gadget Heaven
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-white">{links}</ul>
           </div>
           <div className="navbar-end space-x-4">
-            <div className="rounded-full bg-white p-2">
+            <NavLink
+              to={"dashboard"}
+              className="relative rounded-full border border-[#0B0B0B1A] bg-white p-2"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -153,8 +182,16 @@ const Navbar = () => {
                   </clipPath>
                 </defs>
               </svg>
-            </div>
-            <div className="rounded-full bg-white p-2">
+              <p
+                className={`absolute ${cart.length == 0 ? "hidden" : ""} -right-[10px] -top-[10px] flex size-5 items-center justify-center rounded-full bg-white text-xs text-black`}
+              >
+                {cart.length}
+              </p>
+            </NavLink>
+            <NavLink
+              to={"dashboard"}
+              className="relative rounded-full border border-[#0B0B0B1A] bg-white p-2"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -177,7 +214,12 @@ const Navbar = () => {
                   </clipPath>
                 </defs>
               </svg>
-            </div>
+              <p
+                className={`absolute ${wish.length == 0 ? "hidden" : ""} -right-[10px] -top-[10px] flex size-5 items-center justify-center rounded-full bg-white text-xs text-black`}
+              >
+                {wish.length}
+              </p>
+            </NavLink>
           </div>
         </div>
         <Banner></Banner>
@@ -216,10 +258,20 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to={"history"}
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "active" : ""
+          }
+        >
+          Purchase History
+        </NavLink>
+      </li>
     </>
   );
   return (
-    <div className="space-y-6 rounded-3xl px-32 pt-10">
+    <div className="mx-5 space-y-3 rounded-3xl pt-5 md:mx-8 md:space-y-6 md:pt-10 lg:px-32">
       <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -246,7 +298,9 @@ const Navbar = () => {
               {links2}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl text-[#0B0B0B]">Gadget Heaven</a>
+          <Link to={"/"} className="btn btn-ghost text-xl text-[#0B0B0B]">
+            Gadget Heaven
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 text-[#0B0B0BB2]">
@@ -254,7 +308,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end space-x-4">
-          <div className="rounded-full border border-[#0B0B0B1A] bg-white p-2">
+          <NavLink
+            to={"dashboard"}
+            className="relative rounded-full border border-[#0B0B0B1A] bg-white p-2"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -298,8 +355,16 @@ const Navbar = () => {
                 </clipPath>
               </defs>
             </svg>
-          </div>
-          <div className="rounded-full border border-[#0B0B0B1A] bg-white p-2">
+            <p
+              className={`absolute ${cart.length == 0 ? "hidden" : ""} -right-[10px] -top-[10px] flex size-5 items-center justify-center rounded-full bg-white text-xs text-black`}
+            >
+              {cart.length}
+            </p>
+          </NavLink>
+          <NavLink
+            to={"dashboard"}
+            className="relative rounded-full border border-[#0B0B0B1A] bg-white p-2"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -322,7 +387,12 @@ const Navbar = () => {
                 </clipPath>
               </defs>
             </svg>
-          </div>
+            <p
+              className={`absolute ${wish.length == 0 ? "hidden" : ""} -right-[10px] -top-[10px] flex size-5 items-center justify-center rounded-full bg-white text-xs text-black`}
+            >
+              {wish.length}
+            </p>
+          </NavLink>
         </div>
       </div>
     </div>

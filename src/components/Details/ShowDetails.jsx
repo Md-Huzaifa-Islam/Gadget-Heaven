@@ -14,37 +14,44 @@ const ShowDetails = ({ device }) => {
     Specification,
     rating,
   } = device;
-
+  document.title = `Details | Gadget Heaven`;
   return (
-    <div className="grid grid-cols-[1fr_1.8fr] grid-rows-1 gap-8">
-      <div className="">
+    <div className="grid gap-4 md:grid-cols-[1fr_1.8fr] md:grid-rows-1 md:gap-8">
+      <div className="mx-auto w-[320px] md:mx-0 md:w-auto">
         <img
           src={product_image}
           className="h-full w-full object-contain"
           alt=""
         />
       </div>
-      <div className="grid gap-4 text-[#09080F]">
-        <div className="grid gap-3">
-          <p className="text-3xl font-semibold">{product_title}</p>
-          <p className="text-xl font-semibold opacity-80">Price: $ {price}</p>
+      <div className="grid gap-3 text-[#09080F] md:gap-4">
+        <div className="grid gap-2 md:gap-3">
+          <p className="text-xl font-semibold md:text-3xl">{product_title}</p>
+          <p className="text-base font-medium opacity-80 md:text-xl md:font-semibold">
+            Price: $ {price}
+          </p>
         </div>
         <div className="w-max rounded-[32px] border border-[#309C08] bg-[#309C081A] px-[14px] py-[7px] text-sm font-medium text-[#309C08]">
           <p className="">{availability ? `In Stock` : `Out Of Stock`}</p>
         </div>
-        <p className="text-lg opacity-60">{description}</p>
-        <div className="grid gap-3">
-          <p className="text-lg font-bold">Specification:</p>
+        <p className="text-base opacity-60 md:text-lg">{description}</p>
+        <div className="grid gap-2 md:gap-3">
+          <p className="font-semibold md:text-lg md:font-bold">
+            Specification:
+          </p>
           <ol className="list-inside list-decimal">
             {Specification.map((point) => (
-              <p key={point} className="list-item pb-1 text-lg opacity-60">
+              <p
+                key={point}
+                className="list-item pb-1 text-sm opacity-60 md:text-lg"
+              >
                 {point}
               </p>
             ))}
           </ol>
         </div>
         <div className="">
-          <p className="text-lg font-bold">Rating ⭐ </p>
+          <p className="font-semibold md:text-lg md:font-bold">Rating ⭐ </p>
           <div className="flex items-center gap-4">
             <div>⭐⭐⭐⭐⭐</div>
             <p className="rounded-[32px] bg-[#09080F0D] px-[14px] py-[7px] text-sm font-medium text-[#09080FCC]">
@@ -54,7 +61,9 @@ const ShowDetails = ({ device }) => {
         </div>
         <div className="flex items-center gap-4">
           <button
-            onClick={() => addToCart(device)}
+            onClick={() => {
+              addToCart(device);
+            }}
             className="btn h-auto rounded-[32px] bg-[#9538E2] p-2 px-5 text-white hover:text-[#9538E2]"
           >
             <p>Add To Card</p>
@@ -108,7 +117,7 @@ const ShowDetails = ({ device }) => {
             </svg>
           </button>
           <button
-            onClick={addToWish(device)}
+            onClick={() => addToWish(device)}
             className="btn rounded-full border border-[#09080F] border-opacity-40 p-3"
           >
             <svg

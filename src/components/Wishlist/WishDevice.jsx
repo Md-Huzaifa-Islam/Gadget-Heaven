@@ -1,18 +1,23 @@
 import { useContext } from "react";
 import PropTypes from "prop-types";
-import WishContext from "../../context/wishContext";
 import CartContext from "../../Context/Cardcontext";
-
+import WishContext from "../../context/wishContext";
+import { toast } from "react-toastify";
 const WishDevice = ({ device }) => {
-  const { removeFromWish } = useContext(WishContext);
   const { addToCart } = useContext(CartContext);
+  const { removeFromWish } = useContext(WishContext);
+  const handleAdd = () => {
+    addToCart(device);
+    removeFromWish(device);
+  };
   const handleremove = () => {
     removeFromWish(device);
+    toast(`${device["product_title"]} is removed from Wishlist`);
   };
   const { product_title, product_image, Specification, price } = device;
   return (
-    <div className="flex justify-between rounded-2xl bg-white p-8 shadow-lg">
-      <div className="grid grid-cols-[1fr_4fr] items-center gap-8">
+    <div className="flex justify-between rounded-2xl bg-white p-4 shadow-lg md:p-8">
+      <div className="grid grid-cols-[90px_3fr] items-center gap-4 md:grid-cols-[1fr_4fr] md:gap-8">
         <div className="h-full">
           <img
             src={product_image}
@@ -20,9 +25,9 @@ const WishDevice = ({ device }) => {
             alt=""
           />
         </div>
-        <div className="flex h-full flex-col justify-between text-left text-[#09080F]">
-          <p className="text-2xl font-semibold">{product_title}</p>
-          <p className="w-max text-lg opacity-60">
+        <div className="flex h-full flex-col justify-between gap-1 text-left text-[#09080F] md:gap-0">
+          <p className="text-xl font-semibold md:text-2xl">{product_title}</p>
+          <p className="text-sm opacity-60 md:w-max md:text-lg">
             {Specification.map((d) => {
               if (Specification[Specification.length - 1] == d) {
                 return `${d}`;
@@ -31,12 +36,11 @@ const WishDevice = ({ device }) => {
               }
             })}
           </p>
-          <p className="text-xl font-semibold opacity-80">Price: $ {price}</p>
+          <p className="text-base font-semibold opacity-80 md:text-xl">
+            Price: $ {price}
+          </p>
           <button
-            onClick={() => {
-              addToCart(device);
-              removeFromWish(device);
-            }}
+            onClick={handleAdd}
             className="btn h-auto w-max rounded-[32px] bg-[#9538E2] p-2 px-5 text-white hover:text-[#9538E2]"
           >
             <p>Add To Card</p>
@@ -93,7 +97,7 @@ const WishDevice = ({ device }) => {
       </div>
       <button
         onClick={handleremove}
-        className="h-max rounded-full border-2 border-[#FF0000] p-[6px]"
+        className="h-max rounded-full border-2 border-[#FF0000] p-1 md:p-[6px]"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

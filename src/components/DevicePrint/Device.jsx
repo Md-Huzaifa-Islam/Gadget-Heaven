@@ -12,16 +12,24 @@ const Device = ({ data }) => {
           alt=""
         />
       </div>
-      <p className="text-2xl font-semibold text-[#09080F]">{product_title}</p>
-      <p className="text-xl font-medium text-[#09080F99]">Price: {price}</p>
-      <Link
-        to={`product/${product_id}`}
-        className={
-          "w-max rounded-[32px] border border-primary-0 px-5 py-3 text-lg font-semibold text-primary-0"
-        }
-      >
-        View Details
-      </Link>
+      <div className="flex items-center justify-between md:grid md:gap-4">
+        <div className="grid gap-2 md:gap-4">
+          <p className="text-xl font-semibold text-[#09080F] md:text-2xl">
+            {product_title}
+          </p>
+          <p className="text-lg font-semibold text-[#09080F99] md:text-xl md:font-medium">
+            Price: {price}
+          </p>
+        </div>
+        <Link
+          to={`product/${product_id}`}
+          className={
+            "w-max rounded-[32px] border border-primary-0 px-3 py-2 text-base font-medium text-primary-0 md:px-5 md:py-3 md:text-lg md:font-semibold"
+          }
+        >
+          View Details
+        </Link>
+      </div>
     </div>
   );
 };

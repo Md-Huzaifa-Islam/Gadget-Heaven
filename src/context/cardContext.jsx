@@ -3,11 +3,12 @@ import {
   getFromLocalStorage,
   setLocalStorage,
 } from "../components/Local Storage/localStorage";
-
+import { toast } from "react-toastify";
 const CartContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const CartProvider = ({ children }) => {
+  // cart section
   const [cart, setCart] = useState(() => {
     return getFromLocalStorage("cart");
   });
@@ -20,7 +21,7 @@ export const CartProvider = ({ children }) => {
       cart.forEach((device) => {
         newp += device.price;
       });
-      setPrice(newp);
+      setPrice(newp.toFixed(2));
     } else {
       setPrice(0);
     }
@@ -32,14 +33,17 @@ export const CartProvider = ({ children }) => {
     cart.map((p) => {
       if (p["product_id"] == product_id) {
         found = true;
+        toast.error(`${item["product_title"]} is already in the Cart`);
       }
     });
     if (!found) {
       setCart((prevCart) => [...prevCart, item]);
+      toast(`${item["product_title"]} is added to the Cart`);
     }
   };
   function removeFromCart(item) {
     const { product_id } = item;
+    toast(`${item["product_title"]} is removed from Cart`);
     const newList = cart.filter((p) => {
       return p["product_id"] != product_id;
     });
@@ -47,7 +51,12 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(newList));
   }
   function sortCart() {
-    setCart((prevCart) => [...prevCart].sort((a, b) => b.price - a.price));
+    if (price > 0) {
+      setCart((prevCart) => [...prevCart].sort((a, b) => b.price - a.price));
+      toast("The cart is sorted");
+    } else {
+      toast.error("There is no item to sort in Cart");
+    }
   }
   const clearCart = () => {
     setCart([]);

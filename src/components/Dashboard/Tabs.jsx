@@ -5,10 +5,10 @@ import Wishlist from "../Wishlist/Wishlist";
 
 const Tabbs = () => {
   return (
-    <Tabs className={"grid w-full gap-8"}>
+    <Tabs className={"grid w-full gap-4 md:gap-8"}>
       <TabList className={"flex items-center justify-center gap-6 border-b-0"}>
         <Tab
-          className={`px-16 py-3`}
+          className={`px-5 py-3 md:px-16`}
           style={{
             borderRadius: "32px 32px 32px 32px",
             border: "1px solid white",
@@ -17,7 +17,7 @@ const Tabbs = () => {
           Cart
         </Tab>
         <Tab
-          className={"rounded-[32px] px-16 py-3"}
+          className={"rounded-[32px] px-5 py-3 md:px-16"}
           style={{
             borderRadius: "32px 32px 32px 32px",
             border: "1px solid white",

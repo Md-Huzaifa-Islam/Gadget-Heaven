@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 const DeviceContainer = ({ type, is }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("/src/data/devices.json")
+    fetch("/data/devices.json")
       .then((res) => res.json())
       .then((data) => setData(data.products));
   }, []);
@@ -16,7 +16,7 @@ const DeviceContainer = ({ type, is }) => {
       return device[is] === true;
     });
     return (
-      <div className="grid w-full grid-cols-3 gap-6">
+      <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {newList.map((data) => (
           <Device data={data} key={data["product_id"]}></Device>
         ))}
@@ -25,7 +25,7 @@ const DeviceContainer = ({ type, is }) => {
   }
   if (type === "all") {
     return (
-      <div className="grid w-full grid-cols-3 gap-6">
+      <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {data.map((data) => (
           <Device data={data} key={data["product_id"]}></Device>
         ))}
@@ -37,7 +37,7 @@ const DeviceContainer = ({ type, is }) => {
   });
 
   return (
-    <div className="grid w-full grid-cols-3 gap-6">
+    <div className="grid w-full grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
       {newList.map((data) => (
         <Device data={data} key={data["product_id"]}></Device>
       ))}
