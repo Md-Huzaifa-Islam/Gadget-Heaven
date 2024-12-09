@@ -30,5 +30,5 @@ GadgetHaven is a responsive e-commerce platform that allows users to explore and
 
 ## Links
 
-- **GitHub Repository**: [GadgetHaven Repository](https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-Md-Huzaifa-Islam)
+- **GitHub Repository**: [GadgetHaven Repository](https://github.com/Md-Huzaifa-Islam/Gadget-Heaven)
 - **Live Website**: [GadgetHaven Live](https://deft-crisp-b285bd.netlify.app/)
